@@ -38,6 +38,18 @@
                 <li><a class="dropdown-item" href="{{route('tags.create')}}">Добавить тег</a></li>
               </ul>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Права и роли
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{route('admin.roles')}}">Все роли</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.roles.create')}}">Добавить роль</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{{route('admin.permissions')}}">Все Права</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.permissions.create')}}">Добавить право</a></li>
+              </ul>
+          </li>
         </ul>
 
         <form class="d-flex" role="search">
