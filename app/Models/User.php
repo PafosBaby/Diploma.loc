@@ -46,4 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getRoles()
+    {
+        $roleNames=[];
+        foreach($this->roles as $role){
+            $roleNames[] =$role->name;
+        }
+
+        return implode(', ', $roleNames);
+    }
 }

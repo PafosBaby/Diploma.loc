@@ -50,6 +50,16 @@
                 <li><a class="dropdown-item" href="{{route('admin.permissions.create')}}">Добавить право</a></li>
               </ul>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Пользоваатели
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{route('admin.users')}}">Все пользователи</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{}">Добавить пользователя</a></li>
+              </ul>
+          </li>
         </ul>
 
         <form class="d-flex" role="search">

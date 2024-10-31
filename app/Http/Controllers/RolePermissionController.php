@@ -33,6 +33,26 @@ class RolePermissionController extends Controller
 
     }
 
+    public function editRole(Role $role)
+    {
+        return view('admin.roles.edit',[
+            'role' => $role,
+            'permissions' => Permission::all()
+        ]);
+    }
+
+    public function updateRole(Request $request, Role $role)
+    {
+        $request->validate([
+            'name' => 'required|unique:roles,name,'.$role->id,
+
+        ]);
+
+        $role->update($request->all());
+        $role->syncPermissions($request->permissions);
+        return redirect()->route('admin.roles');
+    }
+
 
     public function permissionsPage()
     {

@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,18 +34,30 @@ Route::middleware(['locale'])->group(function (){
 
     Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
-        Route::resource('categories', CategoryController::class)->middleware('admin');
-        Route::resource('articles', ArticleController::class);
-        Route::resource('tags', TagController::class);
+        Route::resource('categories', CategoryController::class)->middleware(['role:admin|author|manager']);
+        Route::resource('articles', ArticleController::class)->middleware(['role:admin|author|manager']);
+        Route::resource('tags', TagController::class)->middleware(['role:admin|author|manager']);
         Route::get('articles/{article}/remove-image', [ArticleController::class, 'removeImage'])->name('admin.articles.remove-image');
 
-        Route::get('roles', [RolePermissionController::class, 'rolesPage'])->name('admin.roles');
-        Route::get('roles/create', [RolePermissionController::class, 'roleForm'])->name('admin.roles.create');
-        Route::post('roles/create', [RolePermissionController::class, 'storeRole'])->name('admin.roles.store');
+        Route::prefix('roles')->middleware(['role:admin'])->group(function(){
+            Route::get('/', [RolePermissionController::class, 'rolesPage'])->name('admin.roles');
+            Route::get('create', [RolePermissionController::class, 'roleForm'])->name('admin.roles.create');
+            Route::post('create', [RolePermissionController::class, 'storeRole'])->name('admin.roles.store');
+            Route::get('{role}/edit', [RolePermissionController::class, 'editRole'])->name('admin.roles.edit');
+            Route::put('{role}/edit', [RolePermissionController::class, 'updateRole'])->name('admin.roles.update');
+        });
 
-        Route::get('permissions', [RolePermissionController::class, 'permissionsPage'])->name('admin.permissions');
-        Route::get('permissions/create', [RolePermissionController::class, 'permissionForm'])->name('admin.permissions.create');
-        Route::post('permissions/create', [RolePermissionController::class, 'storePermission'])->name('admin.permissions.store');
+        Route::prefix('permissions')->middleware(['role:admin'])->group(function(){
+        Route::get('/', [RolePermissionController::class, 'permissionsPage'])->name('admin.permissions');
+        Route::get('create', [RolePermissionController::class, 'permissionForm'])->name('admin.permissions.create');
+        Route::post('create', [RolePermissionController::class, 'storePermission'])->name('admin.permissions.store');
+        });
+
+        Route::prefix('users')->middleware(['role:admin|manager'])->group(function(){
+            Route::get('/', [UserController::class, 'usersPage'])->name('admin.users');
+            Route::get('{user}/edit', [UserController::class, 'editPage'])->name('admin.users.edit');
+            Route::put('{user}/edit', [UserController::class, 'update'])->name('admin.users.update');
+        });
     });
 });
 
