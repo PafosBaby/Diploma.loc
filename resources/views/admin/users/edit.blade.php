@@ -19,9 +19,9 @@
       </div>
     <button class="btn btn-success">Submit</button>
 
-    @if($roles->count())
     <div class="form-group mt-3 mb-3">
-        <p>Теги</p>
+        @if($roles->count())
+        <h4>Роли</h4>
         <div class="d-flex">
             @foreach($roles as $role)
             <div class="form-check mb-3 mx-2"@if ($user->id == auth()->user()->id && $user->hasRole('admin') && $role->name == 'admin') style="display: none" @endif>
@@ -32,8 +32,21 @@
             </div>
             @endforeach
         </div>
+        @endif
+        @if($permissions->count())
+        <h4>Права</h4>
+        <div class="d-flex">
+            @foreach($permissions as $permission)
+            <div class="form-check mb-3 mx-2">
+              <input class="form-check-input " type="checkbox" name="permissions[]" value="{{$permission->name}}" id="{{'permission-'.$permission->id}}"  @if($user->hasPermissionTo($permission->name)) checked @endif>
+                  <label class="form-check-label mb-2" for="{{'permission-'. $permission->id}}">
+                    {{$permission->name}}
+                  </label>
+            </div>
+            @endforeach
+        </div>
+        @endif
     </div>
-    @endif
 
   </form>
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -12,8 +14,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index')
-        ->with('categories',Category::all());
+        if (Auth::user()->hasPermissionTo('view categories')) {
+            return view('admin.category.index')
+            ->with('categories',Category::all());
+        } else {
+            return abort(403);
+        }
     }
 
     /**
@@ -21,7 +27,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        if(Auth::user()->hasPermissionTo('create categories')){
+            return view('admin.category.create');
+        }else{
+           return abort(403);
+        }
     }
 
     /**
@@ -32,7 +42,7 @@ class CategoryController extends Controller
         $request->validate([
             'name'=> ['required','min:2','max:50', 'unique:categories'],
         ]);
-        
+
         Category::create($request->all());
         return redirect()->route('categories.index');
     }
@@ -50,9 +60,13 @@ class CategoryController extends Controller
      */
     public function edit( Category $category)
     {
-        return view('admin.category.edit',[
-            'category' => $category
-        ]);
+        if(Auth::user()->hasPermissionTo('edit categories')){
+            return view('admin.category.edit',[
+                'category' => $category
+            ]);
+        }else{
+            return abort(403);
+        }
     }
 
     /**
@@ -73,7 +87,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        return back();
+        if(Auth::user()->hasPermissionTo('delete categories')){
+            $category->delete();
+            return back();
+        }else{
+            return abort(403);
+        }
     }
 }

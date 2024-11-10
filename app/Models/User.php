@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,4 +58,21 @@ class User extends Authenticatable
 
         return implode(', ', $roleNames);
     }
+
+    public function getPermissions()
+    {
+        $tmpPerms =[];
+        if($this->getDirectPermissions()->count()){
+            foreach($this->getDirectPermissions() as $perm){
+                $tmpPerms[] = $perm->name;
+            };
+        }else{
+            foreach($this->getAllPermissions() as $perm){
+                $tmpPerms[] = $perm->name;
+            };
+        }
+        
+        return implode(', ', $tmpPerms);
+    }
+
 }

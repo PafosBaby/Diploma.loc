@@ -34,7 +34,7 @@ Route::middleware(['locale'])->group(function (){
 
     Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
-        Route::resource('categories', CategoryController::class)->middleware(['role:admin|author|manager']);
+        Route::resource('categories', CategoryController::class)->middleware(['permission:view categories|create categories|edit categories|delete categories']);
         Route::resource('articles', ArticleController::class)->middleware(['role:admin|author|manager']);
         Route::resource('tags', TagController::class)->middleware(['role:admin|author|manager']);
         Route::get('articles/{article}/remove-image', [ArticleController::class, 'removeImage'])->name('admin.articles.remove-image');

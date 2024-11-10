@@ -8,7 +8,9 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">категория</th>
+            @hasanyrole('admin|author')
             <th scope="col">Действие</th>
+            @endhasanyrole
           </tr>
         </thead>
         <tbody>
@@ -16,13 +18,19 @@
             <tr>
                 <th scope="col">{{$cat->id}}</th>
                 <th scope="col">{{$cat->name}}</th>
+                @hasanyrole('admin|author')
                 <th scope="col" class="d-flex">
-                    <a href="{{route('categories.edit', $cat)}}"><button type="button" class="btn btn-sm btn-warning">Изменить</button></a>
+                    @can('edit categories')
+                        <a href="{{route('categories.edit', $cat)}}"><button type="button" class="btn btn-sm btn-warning">Изменить</button></a>
+                    @endcan
+                    @can('delete categories')
                     <form action="{{route('categories.destroy', $cat)}}" method="POST" class="mx-2">
                         @csrf  @method('DELETE')
                         <button  class="btn btn-sm btn-danger btn-remove">Удалить</button>
                     </form>
+                    @endcan
                 </th>
+                @endhasanyrole
               </tr>
             @endforeach
         </tbody>

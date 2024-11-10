@@ -19,9 +19,13 @@
                 <th scope="col">{{$user->name}}</th>
                 <th scope="col">{{$user->email}}</th>
                 <th scope="col">
+                    @if($user->roles->count())
                         {{$user->getRoles()}}
+                    @endif
                 </th>
-                <th scope="col">...</th>
+                <th scope="col">
+                    {{$user->getPermissions()}}
+                </th>
                 <th scope="col" class="d-flex">
                     <a href="{{route('admin.users.edit', $user)}}"><button type="button" class="btn btn-sm btn-warning">Изменить</button></a>
                     {{-- <form action="" method="POST" class="mx-2">
