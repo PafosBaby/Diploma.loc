@@ -101,7 +101,7 @@
                                                     @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">{{__("Contact")}}</a></li>
+                                            <li><a href="{{route('app.catalog')}}">{{__("Магазин")}}</a></li>
                                         </ul>
                                     </nav>
                                 </div>

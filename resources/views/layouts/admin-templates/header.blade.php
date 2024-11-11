@@ -19,6 +19,17 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{__("Товары")}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="">Все товары</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{route('products.create')}}">Добавить товар</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{__("News")}}
             </a>
             <ul class="dropdown-menu">

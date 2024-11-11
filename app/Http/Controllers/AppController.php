@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -39,7 +40,19 @@ class AppController extends Controller
 
     }
 
+    public function catalogPage()
+    {
+        return view('catalog', [
+            'products' => Product::all(),
+        ]);
+    }
 
+    public function productPage(Product $product)
+    {
+        return view('product-page', [
+            'product' => $product,
+        ]);
+    }
 }
 
 

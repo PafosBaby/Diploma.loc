@@ -6,6 +6,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -20,6 +21,8 @@ Route::middleware(['locale'])->group(function (){
     Route::get('blog/{categorySlug}', [AppController::class, 'blogPage'])->name('app.blog.category');
     Route::get('blog/{categorySlug}/{articleSlug}', [AppController::class , 'articlePage'])->name('app.blog.article');
     Route::post('blog/{article}/add-coment', [CommentController::class, 'store'])->name('app.article.add-comment');
+    Route::get('catalog', [AppController::class, 'catalogPage'])->name('app.catalog');
+    Route::get('catalog/{product}', [AppController::class, 'productPage'])->name('app.product');
 
 
     Route::middleware(['guest'])->group(function(){
@@ -38,6 +41,7 @@ Route::middleware(['locale'])->group(function (){
         Route::resource('articles', ArticleController::class)->middleware(['role:admin|author|manager']);
         Route::resource('tags', TagController::class)->middleware(['role:admin|author|manager']);
         Route::get('articles/{article}/remove-image', [ArticleController::class, 'removeImage'])->name('admin.articles.remove-image');
+        Route::resource('products', ProductController::class);
 
         Route::prefix('roles')->middleware(['role:admin'])->group(function(){
             Route::get('/', [RolePermissionController::class, 'rolesPage'])->name('admin.roles');
