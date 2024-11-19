@@ -67,7 +67,7 @@
                                         <div class="tp-project z-index mb-30">
                                             <div class="tp-project-img">
                                                 <a href="{{route('app.product', $product)}}">
-                                                    <img src="assets/img/project/project-tab-1.jpg" class="img-fluid" alt="img not found">
+                                                    <img src="{{$product->getSmallImage()}}" class="img-fluid" alt="img not found">
                                                 </a>
                                             </div>
                                             <div class="tp-project-text">
@@ -77,11 +77,11 @@
                                                         <h4>{{$product->name}}</h4>
                                                     </a>
                                                     <div class="price">
-                                                        <h2 class="tp-project-title">{{$product->price}} ₽</h2>
+                                                        <h2 class="tp-project-title">{{$product->getPrice()}}</h2>
                                                     </div>
                                                 </div>
                                                 <div class="tp-project-text-icon">
-                                                    <a href="project-details.html"><i class="fal fa-plus"></i></a>
+                                                    <a href="{{route('cart.add-product', $product)}}" class="add-to-cart"><i class="fal fa-plus"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,4 +106,20 @@
 
 </main>
 
+@endsection
+@section('page-scripts')
+    <script>
+        $('.add-to-cart').on("click",function(e){
+            e.preventDefault();
+            let $this = $(this);
+            $.ajax({
+                url: $this.attr('href'),
+                method: 'GET',
+                success: function(res){
+                    $('#header-cart-info').text('Корзина ('+ res.qty + ')');
+                    $('#header-cart-info-two').text('Корзина ('+ res.qty + ')');
+                }
+            })
+        });
+    </script>
 @endsection

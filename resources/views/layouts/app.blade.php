@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/swiper-bundle.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/default.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    @yield('page-style')
 </head>
 
 <body>
@@ -44,6 +45,7 @@
     <script src="{{asset('assets/js/ajax-form.js')}}"></script>
     <script src="{{asset('assets/js/wow.min.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+    @yield('page-scripts')
 </body>
 
 </html>

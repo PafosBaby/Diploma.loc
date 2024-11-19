@@ -35,8 +35,12 @@
         @enderror
     </div>
     <div class="form-group mb-3">
-        <label for="image">Фото</label>
+        <label for="image">Главное Фото</label>
         <input type="file" class="form-control" id="image" name="image">
+    </div>
+    <div class="form-group mb-3">
+        <label for="images">Галерея</label>
+        <input type="file" class="form-control" id="images" name="images[]" multiple>
     </div>
 
     <button class="btn btn-success">Submit</button>

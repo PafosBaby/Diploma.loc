@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\TagController;
@@ -37,6 +39,7 @@ Route::middleware(['locale'])->group(function (){
 
     Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
+        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
         Route::resource('categories', CategoryController::class)->middleware(['permission:view categories|create categories|edit categories|delete categories']);
         Route::resource('articles', ArticleController::class)->middleware(['role:admin|author|manager']);
         Route::resource('tags', TagController::class)->middleware(['role:admin|author|manager']);
@@ -64,4 +67,11 @@ Route::middleware(['locale'])->group(function (){
         });
     });
 });
+
+
+Route::get('cart', [CartController::class, 'cartPage'])->name('cart');
+Route::get('cart/{product}/add', [CartController::class, 'addToCart'])->name('cart.add-product');
+Route::delete('cart/{cart}', [CartController::class, 'removeItem'])->name('cart.delete');
+
+Route::get('ckeckout', [OrderController::class, 'checkoutPage'])->name('checkout');
 

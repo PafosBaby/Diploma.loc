@@ -39,12 +39,18 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->intended('admin');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
             'name' => 'The provided credentials do not match our records.',
         ])->onlyInput('name');
 
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/');
     }
 }

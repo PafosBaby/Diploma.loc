@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -35,8 +36,14 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required',
         ]);
-        Product::create($request->all());
+        $prod = Product::create($request->all());
+        $prod->uploadImage($request->file('image'));
+        foreach($request->file('images') as $image){
+            ProductImage::uploadImage($image, $prod);
+        }
+
         return back();
+
     }
 
     /**

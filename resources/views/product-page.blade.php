@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="tp-page-title z-index">
-                        <h2 class="breadcrumb-title">Georgia <span>Mishel</span></h2>
+                        <h2 class="breadcrumb-title">{{$product->name}}</h2>
                         <div class="breadcrumb-menu">
                             <nav class="breadcrumb-trail breadcrumbs">
                                 <ul class="trail-items">
@@ -27,29 +27,38 @@
     <!-- breadcrumb area end -->
 
     <!-- team area start here -->
-    <section class="tp-team-area pt-120 pb-120">
+
+    <section class="blog-sidebar-area pt-120 pb-110">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="tp-team-bg theme-dark-bg">
-                        <div class="tp-team fix">
-                            <div class="tp-team-img">
-                                <img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt="img not found">
-                            </div>
-                            <div class="tp-team-text pt-30 fix">
-                                <h2 class="tp-section-title text-white">Georgia Mishel</h2>
-                                <h4 class="tp-team-subtitle mb-25">Professional Cleaner</h4>
-                                <p class="mb-35">Matent maecenas nec massa viverra ute litora aliquam habitant proin commodo bibendum rutrum habitant est magnis quisque aliquet congue vestibulum suscipi Eros tellus odio elite purus feugiat</p>
-                                <ul class="pb-20">
-                                    <li><a href="tel:2(800)6666520"><i class="fas fa-phone-alt"></i> 2 (800) 666 6520</a></li>
-                                    <li><i class="fas fa-map-marker-alt"></i> 24/7 Casino street, England</li>
-                                    <li><a href="mailto:info@klenar24.com"><i class="fas fa-envelope-open"></i> info@klenar24.com</a></li>
-                                </ul>
-                                <div class="sidebar__menu--social tp-team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-google"></i></a>
+            <div class="tp-custom-container-box">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="ablog__sidebar--wrapper mr-50">
+                            <div class="ablog ablog-4 mb-55 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="ablog__img">
+                                    <div class="ablog__img--active swiper-container">
+                                        <div class="swiper-wrapper">
+                                            @foreach ($product->images as $image)
+                                            <div class="ablog__img--item swiper-slide">
+                                                <img src="{{$product->getLargeImage()}}" class="img-fluid" alt="img not found">
+                                            </div>
+                                            <div class="ablog__img--item swiper-slide">
+                                                <img src="{{$image->getImage('large')}}" class="img-fluid" alt="img not found">
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                        <!-- If we need navigation buttons -->
+                                        <div class="swiper-blog-button-prev slide-prev"><i class="far fa-chevron-left"></i></div>
+                                        <div class="swiper-blog-button-next slide-next"><i class="far fa-chevron-right"></i></div>
+                                    </div>
+                                </div>
+                                <div class="ablog__text ablog__text4">
+                                    <h3 class="ablog__text--title4 mb-20"><a href="">{{$product->name}}</a></h3>
+                                    <p class="mb-15">{{$product->description}}</p>
+                                    <h3>{{$product->getPrice()}}</h3>
+                                    <div class="ablog__btn4">
+                                        <a href="{{route('cart.add-product', $product)}}" class="theme-btn add-to-cart"><i class="flaticon-enter"></i>В Корзину</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -60,5 +69,22 @@
     </section>
 </main>
 
+@endsection
+
+@section('page-scripts')
+    <script>
+        $('.add-to-cart').on("click",function(e){
+            e.preventDefault();
+            let $this = $(this);
+            $.ajax({
+                url: $this.attr('href'),
+                method: 'GET',
+                success: function(res){
+                    $('#header-cart-info').text('Корзина ('+ res.qty + ')');
+                    $('#header-cart-info-two').text('Корзина ('+ res.qty + ')');
+                }
+            })
+        });
+    </script>
 @endsection
 

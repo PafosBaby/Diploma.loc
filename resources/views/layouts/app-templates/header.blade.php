@@ -24,8 +24,18 @@
                             <div class="tp-header-top-info">
                                 <div class="tp-header-top-info-single pr-20 mr-40">
                                     <div class="tp-header-top-info-single-text">
-                                        <a href= "{{route('register')}}" class="tp-header-top-info-single-label">Регистрация</a>
-                                        <a href= "{{route('login')}}" class="tp-header-top-info-single-label">Войти</a>
+                                        @auth
+                                        @hasanyrole('admin|manager|author')
+                                        <a href= "{{route('admin')}}" >Консоль</a>
+                                        @endhasanyrole
+                                        <form action="{{route('logout')}}" method="POST">
+                                            @csrf
+                                            <a href= "#" onclick="event.preventDefault();this.closest('form').submit();" >Выйти</a>
+                                        </form>
+                                        @else
+                                        <a href= "{{route('register')}}" >Регистрация</a>
+                                        <a href= "{{route('login')}}" >Войти</a>
+                                        @endauth
                                     </div>
                                 </div>
                                 <div class="tp-header-top-info-single  pr-10 mr-10 border-right-1">
@@ -66,7 +76,7 @@
                                 </div>
                                 <div class="tp-header-top-info-single">
                                     <div class="tp-header-top-info-single-btn">
-                                        <a href="contact.html" class="yellow-btn"><i class="flaticon-enter"></i> Free Quote</a>
+                                        <a href="{{route('cart')}}" class="yellow-btn" id="header-cart-info-two"><i class="flaticon-enter"></i>Корзина ({{$cartItems}})</a>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +123,7 @@
                         </div>
                         <div class="col-xl-2 tp-sticky-column-btn">
                             <div class="tp-sticky-btn text-end">
-                                <a href="contact.html" class="theme-btn justify-content-end"><i class="flaticon-enter"></i> Free Quote</a>
+                                <a href="{{route('cart')}}" id="header-cart-info" class="theme-btn justify-content-end"><i class="flaticon-enter"></i>Корзина ({{$cartItems}})</a>
                             </div>
                         </div>
                     </div>
