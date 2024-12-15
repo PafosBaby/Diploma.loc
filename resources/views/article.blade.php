@@ -3,8 +3,8 @@
 @section('content')
 <main>
     <!-- breadcrumb area start -->
-    <div class="tp-page-title-area pt-180 pb-185 position-relative fix" data-background="assets/img/slider/breadcrumb-bg-1.jpg">
-        <div class="tp-custom-container">
+    <div class="tp-page-title-area pt-180 pb-185 position-relative fix" data-background="{{asset("assets/img/slider/breadcrumb-bg-1.jpg")}}">
+        {{-- <div class="tp-custom-container">
             <div class="row">
                 <div class="col-12">
                     <div class="tp-page-title z-index">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- breadcrumb area end -->
 
@@ -39,30 +39,13 @@
                                 <div class="ablog__text ablog__text4">
                                     <div class="ablog__meta ablog__meta4">
                                         <ul>
-                                            <li><a href="blog-details.html"><i class="far fa-calendar-check"></i> January 15, 2021 </a></li>
-                                            <li><a href="blog-details.html"><i class="far fa-user"></i> Klenar </a></li>
-                                            <li><a href="blog-details.html"><i class="fal fa-comments"></i> No Comments</a></li>
+                                            <li><a href="blog-details.html"><i class="far fa-calendar-check"></i>{{$article->getDate()}}</a></li>
+                                            <li><a href="blog-details.html"><i class="fal fa-comments"></i>Comments {{$article->comments->count()}}</a></li>
                                         </ul>
                                     </div>
                                     <h3 class="ablog__text--title4 mb-20"><a href="blog-details.html">{{$article->title}}</a></h3>
                                     <p class="mb-30">{{$article->descripshion}}</p>
-                                    <div class="blog__deatails--tag wow fadeInUp">
-                                        <span>Post Tags : </span>
-                                        <a href="#">Landing</a>
-                                        <a href="#">Pix Saas Blog</a>
-                                        <a href="#">The Saas</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blog__author mb-95 d-sm-flex wow fadeInUp">
-                                <div class="blog__author-img mr-30">
-                                    <img src="assets/img/blog/b10.jpg" class="img-fluid" alt="img">
-                                </div>
-                                <div class="blog__author-content">
-                                    <h5>Sophie Ianiro</h5>
-                                    <span>Author</span>
-                                    <p>I said cracking goal down the pub blag cheeky bugger at public school A bit of how's your father boot.!</p>
+                                    <p class="mb-30">{{$article->short_description}}</p>
                                 </div>
                             </div>
 
@@ -79,7 +62,6 @@
                                                 <div class="comments-text">
                                                     <div class="avatar-name">
                                                         <h5>{{$comment->name}}</h5>
-                                                        <span class="post-meta">October 26, 2020</span>
                                                     </div>
                                                     <p>{{$comment->comment}}</p>
                                                     <a href="#" class="comment-reply"><i class="fal fa-reply"></i>Reply</a>

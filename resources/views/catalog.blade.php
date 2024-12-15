@@ -5,7 +5,7 @@
 <main>
     <!-- breadcrumb area start -->
     <div class="tp-page-title-area pt-180 pb-185 position-relative fix" data-background="assets/img/slider/breadcrumb-bg-1.jpg">
-        <div class="tp-custom-container">
+        {{-- <div class="tp-custom-container">
             <div class="row">
                 <div class="col-12">
                     <div class="tp-page-title z-index">
@@ -22,14 +22,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- breadcrumb area end -->
 
     <!-- project area start here -->
     <div class="tp-prjects-area pt-120 pb-120">
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="tp-prjects-tab-menu mb-60">
                         <ul class="nav justify-content-center" id="myTab" role="tablist">
@@ -55,7 +55,7 @@
                           </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row pb-50">
                 <div class="col-12">
                     <div class="tp-prjects-tab-content">

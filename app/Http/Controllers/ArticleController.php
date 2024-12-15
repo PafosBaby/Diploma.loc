@@ -101,4 +101,20 @@ class ArticleController extends Controller
         $article->removeImage();
         return back();
     }
+
+    public function publish(Article $article)
+    {
+        if($article->is_active){
+            $article->update([
+            'is_active' => 0,
+            ]);
+        }else{
+            $article->update([
+                'is_active' => 1,
+                ]);
+        }
+
+        return back();
+
+    }
 }

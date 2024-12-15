@@ -4,7 +4,7 @@
 <main>
     <!-- breadcrumb area start -->
     <div class="tp-page-title-area pt-180 pb-185 position-relative fix" data-background="{{asset('assets/img/slider/breadcrumb-bg-1.jpg')}}">
-        <div class="tp-custom-container">
+        {{-- <div class="tp-custom-container">
             <div class="row">
                 <div class="col-12">
                     <div class="tp-page-title z-index">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- breadcrumb area end -->
 
@@ -30,7 +30,7 @@
         <div class="container">
             <div class="tp-custom-container-box">
                 <div class="row">
-                    @foreach ($category->articles as $article)
+                    @foreach ($category->articles->where('is_active', 1) as $article)
                     <div class="col-lg-8">
                         <div class="ablog__sidebar--wrapper mr-50">
                             <div class="ablog ablog-4 mb-55 wow fadeInUp" data-wow-delay=".4s">
@@ -71,7 +71,7 @@
                                 <h3 class="sidebar__widget--title mb-25">Categories</h3>
                                 <div class="sidebar--widget__cat mb-20">
                                     <ul>
-                                        <li><a href="blog-details.html">App & Saas</a></li>
+                                        <li><a href="blog-details.html"></a></li>
                                         <li><a href="blog-details.html">Fresh Products</a></li>
                                         <li><a href="blog-details.html">Graphics</a></li>
                                         <li><a href="blog-details.html">IOS/Android Design</a></li>

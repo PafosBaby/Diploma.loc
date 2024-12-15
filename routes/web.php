@@ -19,7 +19,7 @@ Route::get('change-locale/{locale}', [AppController::class, 'changeLocale'])->na
 
 
 Route::middleware(['locale'])->group(function (){
-    Route::get('/', [AppController::class, 'homePage']);
+    Route::get('/', [AppController::class, 'homePage'])->name('app.home');
     Route::get('blog/{categorySlug}', [AppController::class, 'blogPage'])->name('app.blog.category');
     Route::get('blog/{categorySlug}/{articleSlug}', [AppController::class , 'articlePage'])->name('app.blog.article');
     Route::post('blog/{article}/add-coment', [CommentController::class, 'store'])->name('app.article.add-comment');
@@ -33,15 +33,13 @@ Route::middleware(['locale'])->group(function (){
         Route::get('login', [AuthController::class, 'loginPage'])->name("login");
         Route::post('login', [AuthController::class, 'login'])->name("login.auth");
     });
-
-
-
-
-    Route::prefix('admin')->middleware('auth')->group(function () {
-        Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::prefix('admin')->middleware('auth', 'is_ban', 'role:admin|author|manager')->group(function () {
+        Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
         Route::resource('categories', CategoryController::class)->middleware(['permission:view categories|create categories|edit categories|delete categories']);
         Route::resource('articles', ArticleController::class)->middleware(['role:admin|author|manager']);
+        Route::put('articles/{article}/change-active', [ArticleController::class, 'publish'])->name('admin.articles.change-publish');
         Route::resource('tags', TagController::class)->middleware(['role:admin|author|manager']);
         Route::get('articles/{article}/remove-image', [ArticleController::class, 'removeImage'])->name('admin.articles.remove-image');
         Route::resource('products', ProductController::class);
@@ -68,10 +66,8 @@ Route::middleware(['locale'])->group(function (){
     });
 });
 
-
 Route::get('cart', [CartController::class, 'cartPage'])->name('cart');
 Route::get('cart/{product}/add', [CartController::class, 'addToCart'])->name('cart.add-product');
 Route::delete('cart/{cart}', [CartController::class, 'removeItem'])->name('cart.delete');
-
 Route::get('ckeckout', [OrderController::class, 'checkoutPage'])->name('checkout');
-
+Route::post('send-mail', [OrderController::class, 'sendOrder'])->name('order.send-mail');

@@ -4,7 +4,7 @@
 <main>
     <!-- breadcrumb area start -->
     <div class="tp-page-title-area pt-180 pb-185 position-relative fix" data-background="{{asset('assets/img/slider/breadcrumb-bg-1.jpg')}}">
-        <div class="tp-custom-container">
+        {{-- <div class="tp-custom-container">
             <div class="row">
                 <div class="col-12">
                     <div class="tp-page-title z-index">
@@ -21,14 +21,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- breadcrumb area end -->
 
     <!-- team area start here -->
 
-    <section class="blog-sidebar-area">
-        <div class="container">
+    <section class="blog-sidebar-area pb-200">
+        <div class="container pt-150">
                 @if($cartItems->count())
                 <div class="row">
                     <div class="col-xl-8">

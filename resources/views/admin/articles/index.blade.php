@@ -30,6 +30,12 @@
                         @csrf  @method('DELETE')
                         <button  class="btn btn-sm btn-danger btn-remove">Удалить</button>
                     </form>
+                    <form action="{{route('admin.articles.change-publish', $art)}}" method="POST">
+                        @csrf @method('put')
+                        <button  class="btn btn-sm  @if($art->is_active) btn-danger @else btn-success @endif">
+                            @if($art->is_active) Запретить @else Одобрить @endif
+                        </button>
+                    </form>
                 </th>
               </tr>
             @endforeach
@@ -41,7 +47,7 @@
             <tr>
                 <th scope="">пока нет ни одной статьи</th>
                 <th scope="col">
-                    <a href="" class="btn btn-sm btn-success">Добавить</a>
+                    <a href="" class="btn btn-sm btn-success">Одобрить</a>
                 </th>
               </tr>
         </tbody>

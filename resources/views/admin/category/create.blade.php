@@ -3,7 +3,7 @@
 <form action="{{route('categories.store')}}" method="POST">
     @csrf
     <div class="form-group mb-3">
-      <label for="name">новая категория</label>
+      <label for="name">Новая категория</label>
       <input type="text" class="form-control" id="name" name="name">
       @error('name')
         <small class="text-danger">{{$message}}</small>

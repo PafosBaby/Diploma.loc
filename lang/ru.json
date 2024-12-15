@@ -1,9 +1,47 @@
 {
     "Сonsole" : "Консоль" ,
+    "Exit" : "Выйти",
+    "Email" : "Почта",
+    "Cart" : "Корзина",
+    "Shop" : "Магазин",
+    "Lejeune'23, Novosibirsk" : "Лежена'23, Новосибирск",
+    "Free Call" : "Бесплатный звонок",
+    "Registration" : "Регистрация",
+    "login" : "Войти",
     "Categories" : "Категории" ,
     "News" : "Новости",
     "Tags" : "Теги",
     "Blog" : "Блог",
     "Home" : "Главная",
-    "Contact" : "Контакт"
+    "Contact" : "Контакт",
+
+    "Copyright ©2024. All Rights Reserved Copyright" : "Авторское право ©2024. Все права защищены Авторским правом",
+    "Fast and efficient service" : "Быстрое и эффективное обслуживание",
+    "Cleaning" : "Уборка",
+    "Excellence" : "Превосходство",
+    "Guaranteed!" : "Гарантия!",
+    "Learn More" : "Узнать",
+    "About our Company" : "О нашей компании",
+    "Up your Mess" : "Наведи порядок в своем доме",
+
+    "All Categories" : "Все категории",
+    "Add category" : "Добавить категорию",
+    "Products" : "Товары",
+    "Add product" : "Добавить товар",
+    "All products" : "Все товары",
+    "All news" : "Все новости",
+    "Add article" : "Добавить статью",
+    "All tags" : "Все теги",
+    "Add tags" : "Добавить тег",
+    "All Roles" : "Все роли",
+    "Add Role" : "Добавить роль",
+    "Permissions and roles" : "Права и роли",
+    "All permissions" : "Все Права",
+    "Add permission" : "Добавить правило",
+    "Users" : "Пользователи",
+    "All users" : "Все пользователи",
+    "Add user" : "Добавить пользователя"
+
+
+
 }

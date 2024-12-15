@@ -11,20 +11,20 @@
                 {{__("Categories")}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{route('categories.index')}}">Все категории</a></li>
+              <li><a class="dropdown-item" href="{{route('categories.index')}}">{{__("All Categories")}}</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{route('categories.create')}}">Добавить категорию</a></li>
+              <li><a class="dropdown-item" href="{{route('categories.create')}}">{{__("Add category")}}</a></li>
             </ul>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{__("Товары")}}
+                {{__("Products")}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="">Все товары</a></li>
+              <li><a class="dropdown-item" href="">{{__("All products")}}</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{route('products.create')}}">Добавить товар</a></li>
+              <li><a class="dropdown-item" href="{{route('products.create')}}">{{__("Add product")}}</a></li>
             </ul>
           </li>
 
@@ -33,9 +33,9 @@
                 {{__("News")}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{route('articles.index')}}">Все новости</a></li>
+              <li><a class="dropdown-item" href="{{route('articles.index')}}">{{__("All news")}}</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{route('articles.create')}}">Добавить статью</a></li>
+              <li><a class="dropdown-item" href="{{route('articles.create')}}">{{__("Add article")}}</a></li>
             </ul>
           </li>
 
@@ -44,31 +44,31 @@
                 {{__("Tags")}}
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{route('tags.index')}}">Все теги</a></li>
+                <li><a class="dropdown-item" href="{{route('tags.index')}}">{{__("All tags")}}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{route('tags.create')}}">Добавить тег</a></li>
+                <li><a class="dropdown-item" href="{{route('tags.create')}}">{{__("Add tags")}}</a></li>
               </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Права и роли
+                {{__("Permissions and roles")}}
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{route('admin.roles')}}">Все роли</a></li>
-                <li><a class="dropdown-item" href="{{route('admin.roles.create')}}">Добавить роль</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.roles')}}">{{__("All Roles")}}</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.roles.create')}}">{{__("Add Role")}}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{route('admin.permissions')}}">Все Права</a></li>
-                <li><a class="dropdown-item" href="{{route('admin.permissions.create')}}">Добавить право</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.permissions')}}">{{__("All permissions")}}</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.permissions.create')}}">{{__("Add permission")}}</a></li>
               </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Пользоваатели
+                {{__("Users")}}
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{route('admin.users')}}">Все пользователи</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.users')}}">{{__("All users")}}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{}">Добавить пользователя</a></li>
+                <li><a class="dropdown-item" href="{}">{{__("Add user")}}</a></li>
               </ul>
           </li>
         </ul>

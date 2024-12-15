@@ -19,58 +19,10 @@
                                         <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/o4GuSJYSzrY"><i class="fas fa-play"></i></a>
                                     </div>
                                     <div class="tp-slider z-index">
-                                        <h5 class="tp-slider-subtitle common-yellow-shape w-80 mb-35" data-animation="fadeInUp" data-delay=".5s">Fast and efficient service</h5>
-                                        <h1 class="tp-slider-title mb-45" data-animation="fadeInUp" data-delay=".8s">Cleaning <br>Excellence <br>Guaranteed!</h1>
+                                        <h5 class="tp-slider-subtitle common-yellow-shape w-80 mb-35" data-animation="fadeInUp" data-delay=".5s">{{__("Fast and efficient service")}}</h5>
+                                        <h1 class="tp-slider-title mb-45" data-animation="fadeInUp" data-delay=".8s">{{__("Cleaning")}} <br>{{__("Excellence")}} <br>{{__("Guaranteed!")}}</h1>
                                         <div class="tp-slider-btn" data-animation="fadeInUp" data-delay="1.1s">
-                                            <a href="about.html" class="theme-btn"><i class="flaticon-enter"></i> Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tp-single-slider tp-slider-height d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
-                    <div class="slide-bg" data-background="assets/img/slider/slider-bg-1.jpg"></div>
-                    <div class="slider-img">
-                        <img src="assets/img/slider/slider-img-1.jpg" class="img-fluid" alt="img not found">
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tp-slider-wrapper mt-60 position-relative">
-                                    <div class="tp-slider-video-btn play_btn">
-                                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/o4GuSJYSzrY"><i class="fas fa-play"></i></a>
-                                    </div>
-                                    <div class="tp-slider z-index">
-                                        <h5 class="tp-slider-subtitle common-yellow-shape w-80 mb-35" data-animation="fadeInUp" data-delay=".5s">Fast and efficient service</h5>
-                                        <h1 class="tp-slider-title mb-45" data-animation="fadeInUp" data-delay=".8s">Cleaning <br>Excellence <br>Guaranteed!</h1>
-                                        <div class="tp-slider-btn" data-animation="fadeInUp" data-delay="1.1s">
-                                            <a href="about.html" class="theme-btn"><i class="flaticon-enter"></i> Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tp-single-slider tp-slider-height d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
-                    <div class="slide-bg" data-background="assets/img/slider/slider-bg-1.jpg"></div>
-                    <div class="slider-img">
-                        <img src="assets/img/slider/slider-img-1.jpg" class="img-fluid" alt="img not found">
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tp-slider-wrapper mt-60 position-relative">
-                                    <div class="tp-slider-video-btn play_btn">
-                                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/o4GuSJYSzrY"><i class="fas fa-play"></i></a>
-                                    </div>
-                                    <div class="tp-slider z-index">
-                                        <h5 class="tp-slider-subtitle common-yellow-shape w-80 mb-35" data-animation="fadeInUp" data-delay=".5s">Fast and efficient service</h5>
-                                        <h1 class="tp-slider-title mb-45" data-animation="fadeInUp" data-delay=".8s">Cleaning <br>Excellence <br>Guaranteed!</h1>
-                                        <div class="tp-slider-btn" data-animation="fadeInUp" data-delay="1.1s">
-                                            <a href="about.html" class="theme-btn"><i class="flaticon-enter"></i> Learn More</a>
+                                            <a href="about.html" class="theme-btn"><i class="flaticon-enter"></i>{{__("Learn More")}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -84,51 +36,6 @@
         </div>
     </section>
     <!-- hero area end here -->
-
-    <!-- cta area start here -->
-    <section class="tp-appoint-cta-area yellow-dark-bg pt-80 pb-65">
-        <div class="container">
-            <div class="row align-items-center custom-mar-20">
-                <div class="col-xl-2 col-lg-12 custom-pad-20">
-                    <div class="tp-appoint wow fadeInUp" data-wow-delay=".1s">
-                        <h4 class="tp-appoint-title">Online <br> Appointment </h4>
-                    </div>
-                </div>
-                <div class="col-xl-8 col-lg-9 custom-pad-20">
-                    <div class="row align-items-center custom-mar-20">
-                        <div class="col-lg-4 custom-pad-20">
-                            <div class="tp-appoint wow fadeInUp" data-wow-delay=".3s">
-                                <input type="text" placeholder="Full Name">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 custom-pad-20">
-                            <div class="tp-appoint wow fadeInUp" data-wow-delay=".5s">
-                                <input type="text" placeholder="Phone Number">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 custom-pad-20">
-                            <div class="tp-appoint select-field-arrow wow fadeInUp" data-wow-delay=".7s">
-                                <select>
-                                    <option value="">Service Name</option>
-                                    <option value="">Commercial Service</option>
-                                    <option value="">Residential Service</option>
-                                    <option value="">Industrial Service</option>
-                                    <option value="">Commercial Service</option>
-                                    <option value="">Residential Service</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 custom-pad-20">
-                    <div class="tp-appoint text-end wow fadeInUp" data-wow-delay=".9s">
-                        <button type="submit" class="theme-btn"><i class="flaticon-enter"></i> Submit Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- cta area end here -->
 
     <!-- about area start here -->
     <section class="tp-about-area position-relative pt-120 pb-90 fix">
@@ -145,10 +52,11 @@
                 <div class="col-xl-6 col-md-10">
                     <div class="tp-about-text z-index wow fadeInUp" data-wow-delay=".6s">
                         <div class="section-title-wrapper mb-30">
-                            <h5 class="tp-section-subtitle common-yellow-shape mb-20">About our Company</h5>
-                            <h2 class="tp-section-title">Our Success Cleaning <br>Up your Mess</h2>
+                            <h5 class="tp-section-subtitle common-yellow-shape mb-20">{{__("About our Company")}}</h5>
+                            <h2 class="tp-section-title">{{__("Up your Mess")}}</h2>
                         </div>
-                        <p class="mb-40">Can consent to the use of such technologies byclosing this notice senectus amet sodales habitant dapibus </p>
+                        <p class="mb-40">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ullam ipsam sapiente, praesentium
+                            omnis explicabo, quos sequi nostrum doloribus fugit nulla! Labore, dolores et nemo in eius aliquid rem nostrum.</p>
                         <div class="row mb-10">
                             <div class="col-sm-6">
                                 <div class="tp-about-service mb-30">

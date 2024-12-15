@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 
 class Product extends Model
@@ -91,5 +92,17 @@ class Product extends Model
 
      public function getPrice(){
         return number_format($this->price, 0, ',' ,' ' ). ' ₽';
+     }
+
+     public function remove()
+     {
+        $gallery = $this->images;
+
+        foreach($gallery as $image){
+            Storage::delete($image->image_path);
+        }
+
+        Storage::delete($image->image);
+        $this->delete();
      }
 }

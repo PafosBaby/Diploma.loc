@@ -26,15 +26,15 @@
                                     <div class="tp-header-top-info-single-text">
                                         @auth
                                         @hasanyrole('admin|manager|author')
-                                        <a href= "{{route('admin')}}" >Консоль</a>
+                                        <a href= "{{route('admin')}}" >{{__('Сonsole')}}</a>
                                         @endhasanyrole
                                         <form action="{{route('logout')}}" method="POST">
                                             @csrf
-                                            <a href= "#" onclick="event.preventDefault();this.closest('form').submit();" >Выйти</a>
+                                            <a href= "#" onclick="event.preventDefault();this.closest('form').submit();" >{{__("Exit")}}</a>
                                         </form>
                                         @else
-                                        <a href= "{{route('register')}}" >Регистрация</a>
-                                        <a href= "{{route('login')}}" >Войти</a>
+                                        <a href= "{{route('register')}}">{{__("Registration")}}</a>
+                                        <a href= "{{route('login')}}" >{{__("login")}}</a>
                                         @endauth
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                     <i class="flaticon-email"></i>
                                 </div>
                                 <div class="tp-header-top-info-single-text">
-                                    <span class="tp-header-top-info-single-label">Email us</span>
+                                    <span class="tp-header-top-info-single-label">{{__("Email")}}</span>
                                     <a href="mailto:info@klenar.com" class="tp-header-top-info-single-content font-medium">info@klenar.com</a>
                                 </div>
                             </div>
@@ -70,13 +70,13 @@
                                         <i class="flaticon-phone-call"></i>
                                     </div>
                                     <div class="tp-header-top-info-single-text">
-                                        <span class="tp-header-top-info-single-label">Free Call</span>
-                                        <a href="tel:33388820055" class="tp-header-top-info-single-content font-medium">333 888 200 - 55</a>
+                                        <span class="tp-header-top-info-single-label">{{__("Free Call")}}</span>
+                                        <a href="tel:33388820055" class="tp-header-top-info-single-content font-medium">8(328)125 125</a>
                                     </div>
                                 </div>
                                 <div class="tp-header-top-info-single">
                                     <div class="tp-header-top-info-single-btn">
-                                        <a href="{{route('cart')}}" class="yellow-btn" id="header-cart-info-two"><i class="flaticon-enter"></i>Корзина ({{$cartItems}})</a>
+                                        <a href="{{route('cart')}}" class="yellow-btn" id="header-cart-info-two"><i class="flaticon-enter"></i> {{__("Cart")}} ({{$cartItems}})</a>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                 <div class="tp-main-menu">
                                     <nav id="tp-mobile-menu">
                                         <ul class="text-center">
-                                            <li class="menu-item-has-children"><a href="">{{__("Home")}}</a>
+                                            <li class="menu-item-has-children"><a href="{{route('app.home')}}">{{__("Home")}}</a>
                                             </li>
                                             <li class="menu-item-has-children"><a href="">{{__("Blog")}}</a>
                                                 <ul class="sub-menu">
@@ -111,7 +111,7 @@
                                                     @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="{{route('app.catalog')}}">{{__("Магазин")}}</a></li>
+                                            <li><a href="{{route('app.catalog')}}">{{__("Shop")}}</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-xl-2 tp-sticky-column-btn">
                             <div class="tp-sticky-btn text-end">
-                                <a href="{{route('cart')}}" id="header-cart-info" class="theme-btn justify-content-end"><i class="flaticon-enter"></i>Корзина ({{$cartItems}})</a>
+                                <a href="{{route('cart')}}" id="header-cart-info" class="theme-btn justify-content-end"><i class="flaticon-enter"></i> {{__("Cart")}} ({{$cartItems}})</a>
                             </div>
                         </div>
                     </div>
@@ -140,11 +140,11 @@
                 <div class="tp-mobile-menu"></div>
                 <div class="contact-infos mb-30">
                     <div class="contact-list mb-30">
-                        <h4>Contact Info</h4>
+                        <h4>{{__("Contact")}}</h4>
                         <ul>
-                            <li><i class="flaticon-pin"></i>28/4 Palmal, London</li>
-                            <li><i class="flaticon-email"></i><a href="mailto:info@klenar.com">info@klenar.com</a></li>
-                            <li><i class="flaticon-phone-call"></i><a href="tel:33388820055">333 888 200 - 55</a></li>
+                            <li><i class="flaticon-pin"></i>{{__("Lejeune'23, Novosibirsk")}}</li>
+                            <li><i class="flaticon-email"></i><a href="">info@klenar.com</a></li>
+                            <li><i class="flaticon-phone-call"></i><a href="">8(328)125 125</a></li>
                         </ul>
                         <div class="sidebar__menu--social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
