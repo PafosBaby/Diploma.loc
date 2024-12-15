@@ -28,7 +28,7 @@
     <!-- blog area start here -->
     <section class="blog-sidebar-area pt-120 pb-110">
         <div class="container">
-            <div class="tp-custom-container-box">
+            <div class="tp-custom-container">
                 <div class="row">
                     @foreach ($category->articles->where('is_active', 1) as $article)
                     <div class="col-lg-8">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="ablog__sidebar">
                             <div class="widget wow fadeInUp"  data-wow-delay=".3s">
                                 <div class="sidebar--widget__search mb-45">
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
